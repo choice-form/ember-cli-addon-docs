@@ -4,8 +4,8 @@ import Component from '@ember/component';
 export default Component.extend({
   tagName: '',
   layout: hbs`
-    <div class="import-path docs-mb-6" data-test-import-path>
-      <pre class="docs-md__code docs-whitespace-no-wrap">
+    <div class="import-path mb-6" data-test-import-path>
+      <pre class="md__code whitespace-no-wrap">
         <span class="hljs-keyword">import</span>
 
         {{#if (eq item.exportType "default")}}

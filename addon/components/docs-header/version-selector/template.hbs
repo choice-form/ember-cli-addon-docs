@@ -3,35 +3,50 @@
   attachment="top right"
   clickOutsideToClose=true
   onClose=(action on-close)
-  targetAttachment="bottom right"}}
-  <ul class="docs-mt-2 docs-bg-white docs-shadow-md docs-text-xs docs-rounded docs-z-10">
+  targetAttachment="bottom right"
+}}
+  <ul class="z-10 mt-2 text-xs bg-white rounded shadow-md">
     {{#each sortedVersions as |version|}}
       <li data-test-id="version">
-        <a {{action "changeVersion" version}} href="#"
+        <a
+          href="#"
           class={{concat
-            "docs-text-black docs-no-underline docs-flex docs-items-center
-            docs-px-4 docs-py-3 hover:docs-bg-brand hover:docs-text-white group "
-            (if (eq version sortedVersions.firstObject) "docs-rounded-t")
-            (if (eq version sortedVersions.lastObject) "docs-rounded-b")
-          }}>
-          <span class="docs-w-6 flex">
+            "text-black no-underline flex items-center
+            px-4 py-3 hover:bg-primary hover:text-white group "
+            (if (eq version sortedVersions.firstObject) "rounded-t")
+            (if (eq version sortedVersions.lastObject) "rounded-b")
+          }}
+          {{action "changeVersion" version}}
+        >
+          <span class="flex w-6">
             {{#if (eq version.key currentVersion.key)}}
               {{svg-jar "check" height=16 width=16}}
             {{/if}}
           </span>
-          <span class="docs-font-medium">
+          <span class="font-medium">
             {{version.name}}
           </span>
-
-          <span class="docs-ml-auto docs-pl-8 docs-flex docs-items-center docs-opacity-50 group-hover:docs-opacity-100">
-            {{#if (or (eq version.key latestVersionName) (eq version.key primaryBranch))}}
-              {{svg-jar (if version.tag "git-tag" "git-sha") height=16 width=16}}
+          <span
+            class="flex items-center pl-8 ml-auto opacity-50 group-hover:opacity-100"
+          >
+            {{#if
+              (or
+                (eq version.key latestVersionName)
+                (eq version.key primaryBranch)
+              )
+            }}
+              {{svg-jar (if version.tag "git-tag" "git-sha") height=16 width=16
+              }}
             {{else}}
               {{svg-jar "git-sha" height=16 width=16}}
             {{/if}}
-
-            <span class="docs-text-xxs docs-font-mono docs-pl-1">
-              {{#if (or (eq version.key latestVersionName) (eq version.key primaryBranch))}}
+            <span class="pl-1 font-mono text-2xs">
+              {{#if
+                (or
+                  (eq version.key latestVersionName)
+                  (eq version.key primaryBranch)
+                )
+              }}
                 {{#if version.tag}}
                   {{version.tag}}
                 {{else}}

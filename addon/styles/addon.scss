@@ -22,96 +22,105 @@ $site-container: 1400px;
 
 @import 'syntax';
 
-// Figure out how to do this in tailwind
-.docs-fill-current {
-  &,
-  & * {
-    fill: currentColor;
+.AddonDocs-DocsViewer-Nav {
+  @media (min-width: $site-container) {
+    width: calc(((100% - #{$site-container}) / 2) + 288px);
+    padding-left: calc((100% - #{$site-container}) / 2);
   }
 }
 
-* {
-  box-sizing: border-box;
+.AddonDocs-DocsViewer-CurrentPageIndex {
+  width: calc(((100% - #{$site-container}) / 2) + 14rem);
+  padding-right: calc((100% - #{$site-container}) / 2);
+  min-width: 14rem;
 }
 
-html {
-  @apply .docs-min-h-screen;
-  @apply .docs-flex;
-  @apply .docs-flex-col;
-}
+// // Figure out how to do this in tailwind
+// .docs-fill-current {
+//   &,
+//   & * {
+//     fill: currentColor;
+//   }
+// }
 
-body {
-  @apply .docs-antialiased;
-  @apply .docs-font-sans;
-  @apply .docs-text-base;
-  @apply .docs-leading-normal;
-  @apply .docs-text-grey-darkest;
-  @apply .docs-bg-brand;
+// html {
+//   @apply .docs-min-h-screen;
+//   @apply .docs-flex;
+//   @apply .docs-flex-col;
+// }
 
-  @apply .docs-flex-1;
-  @apply .docs-flex;
-  @apply .docs-flex-col;
-}
+// body {
+//   @apply .docs-antialiased;
+//   @apply .docs-font-sans;
+//   @apply .docs-text-base;
+//   @apply .docs-leading-normal;
+//   @apply .docs-text-grey-darkest;
+//   @apply .docs-bg-brand;
 
-body > .ember-view {
-  @apply .docs-flex-1;
-  @apply .docs-flex;
-  @apply .docs-flex-col;
+//   @apply .docs-flex-1;
+//   @apply .docs-flex;
+//   @apply .docs-flex-col;
+// }
 
-  @apply .docs-mt-1;
-  @apply .docs-bg-white;
-}
+// body > .ember-view {
+//   @apply .docs-flex-1;
+//   @apply .docs-flex;
+//   @apply .docs-flex-col;
 
-pre {
-  margin: 0;
-}
+//   @apply .docs-mt-1;
+//   @apply .docs-bg-white;
+// }
 
-svg {
-  fill: currentColor;
-}
+// pre {
+//   margin: 0;
+// }
 
-.docs-transition {
-  transition: all 0.15s;
-}
+// svg {
+//   fill: currentColor;
+// }
 
-h1 > .heading-anchor:before,
-h2 > .heading-anchor:before,
-h3 > .heading-anchor:before {
-  content: '\B6';
-  cursor: pointer;
-  display: block;
-  float: left;
-  visibility: hidden;
+// .docs-transition {
+//   transition: all 0.15s;
+// }
 
-  color: #aaa;
-}
+// h1 > .heading-anchor:before,
+// h2 > .heading-anchor:before,
+// h3 > .heading-anchor:before {
+//   content: '\B6';
+//   cursor: pointer;
+//   display: block;
+//   float: left;
+//   visibility: hidden;
 
-h1 > .heading-anchor:hover:before,
-h2 > .heading-anchor:hover:before,
-h3 > .heading-anchor:hover:before {
-  visibility: visible;
-}
+//   color: #aaa;
+// }
 
-h1 > a:before {
-  font-size: 0.7em;
-  width: 0.7em;
-  padding: 0.2em 0;
-  margin-left: -0.9em;
-}
+// h1 > .heading-anchor:hover:before,
+// h2 > .heading-anchor:hover:before,
+// h3 > .heading-anchor:hover:before {
+//   visibility: visible;
+// }
 
-h2 > a:before {
-  font-size: 0.85em;
-  width: 0.8em;
-  padding: 0.1em 0em;
-  margin-left: -0.9em;
-}
+// h1 > a:before {
+//   font-size: 0.7em;
+//   width: 0.7em;
+//   padding: 0.2em 0;
+//   margin-left: -0.9em;
+// }
 
-h3 > a:before {
-  font-size: 1em;
-  width: 0em;
-  margin-left: -0.9em;
-}
+// h2 > a:before {
+//   font-size: 0.85em;
+//   width: 0.8em;
+//   padding: 0.1em 0em;
+//   margin-left: -0.9em;
+// }
 
-table {
-  width: 100%;
-}
+// h3 > a:before {
+//   font-size: 1em;
+//   width: 0em;
+//   margin-left: -0.9em;
+// }
+
+// table {
+//   width: 100%;
+// }

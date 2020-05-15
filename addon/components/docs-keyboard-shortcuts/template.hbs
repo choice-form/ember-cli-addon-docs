@@ -2,25 +2,25 @@
   {{#modal-dialog
     animatable=true
     overlay=true
-    wrapperClass="docs-fullscreen-modal docs-keyboard-shortcuts-modal modal-fade"
+    wrapperClass="fullscreen-modal keyboard-shortcuts-modal modal-fade"
     clickOutsideToClose=true
     onClose=(action "toggleKeyboardShortcuts")}}
-    <div class="docs-fullscreen-modal__header">
-      <h2 class="docs-fullscreen-modal__title">Keyboard shortcuts</h2>
+    <div class="fullscreen-modal__header">
+      <h2 class="fullscreen-modal__title">Keyboard shortcuts</h2>
       <a {{action "toggleKeyboardShortcuts"}}
         href="#"
-        class="docs-fullscreen-modal__close-button">
+        class="fullscreen-modal__close-button">
         &times;
       </a>
     </div>
 
-    <div class="docs-fullscreen-modal__body">
-      <table class="docs-keyboard-shortcut-modal">
+    <div class="fullscreen-modal__body">
+      <table class="keyboard-shortcut-modal">
         <tbody>
           <tr>
             <th></th>
             <th>
-              <h3 class="docs-fullscreen-modal__subtitle">Site wide shortcuts</h3>
+              <h3 class="fullscreen-modal__subtitle">Site wide shortcuts</h3>
             </th>
           </tr>
           <tr>
@@ -61,7 +61,7 @@
           <tr>
             <th></th>
             <th>
-              <h3 class="docs-fullscreen-modal__subtitle">Docs search</h3>
+              <h3 class="fullscreen-modal__subtitle">Docs search</h3>
             </th>
           </tr>
           <tr>
@@ -108,7 +108,7 @@
           <tr>
             <th></th>
             <th>
-              <h3 class="docs-fullscreen-modal__subtitle">Docs nav</h3>
+              <h3 class="fullscreen-modal__subtitle">Docs nav</h3>
             </th>
           </tr>
           <tr>

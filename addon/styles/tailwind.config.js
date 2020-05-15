@@ -39,7 +39,7 @@ let textSizesMap = {
   'large-7': '42px',
   'jumbo-1': '60px',
   'jumbo-2': '74px',
-  'jumbo-3': '86px'
+  'jumbo-3': '86px',
 };
 
 // Convert pixel sizes to REMs
@@ -74,13 +74,13 @@ module.exports = {
       inherit: 'inherit',
 
       black: '#22292f',
-      'grey-darkest': '#3d4852',
-      'grey-darker': '#606f7b',
-      'grey-dark': '#8795a1',
-      grey: '#b8c2cc',
-      'grey-light': '#dae1e7',
-      'grey-lighter': '#f1f5f8',
-      'grey-lightest': '#f8fafc',
+      'gray-5est': '#3d4852',
+      'gray-6': '#606f7b',
+      'gray-5': '#8795a1',
+      gray: '#b8c2cc',
+      'gray-light': '#dae1e7',
+      'gray-lighter': '#f1f5f8',
+      'gray-lightest': '#f8fafc',
       white: 'white',
 
       yellow: '#ffed4a',
@@ -88,7 +88,7 @@ module.exports = {
       'code-base': '#282c34',
 
       // See the note in tailwind/compnents/docs-brand-colors.css
-      'brand-var': 'var(--brand-primary, #E04E39)'
+      'brand-var': 'var(--brand-primary, #E04E39)',
     },
 
     /*
@@ -112,9 +112,9 @@ module.exports = {
 
     screens: {
       sm: '576px',
-      md: '768px',
+      om: '768px',
       lg: '992px',
-      xl: '1200px'
+      xl: '1200px',
     },
 
     /*
@@ -150,7 +150,7 @@ module.exports = {
         'Fira Sans',
         'Droid Sans',
         'Helvetica Neue',
-        'sans-serif'
+        'sans-serif',
       ],
       serif: [
         'Constantia',
@@ -162,7 +162,7 @@ module.exports = {
         'Bitstream Vera Serif',
         'Liberation Serif',
         'Georgia',
-        'serif'
+        'serif',
       ],
       mono: [
         'Menlo',
@@ -170,8 +170,8 @@ module.exports = {
         'Consolas',
         'Liberation Mono',
         'Courier New',
-        'monospace'
-      ]
+        'monospace',
+      ],
     },
 
     /*
@@ -219,7 +219,7 @@ module.exports = {
       semibold: 600,
       bold: 700,
       extrabold: 800,
-      black: 900
+      black: 900,
     },
 
     /*
@@ -240,7 +240,7 @@ module.exports = {
       tight: 1.25,
       small: 1.45,
       normal: 1.625,
-      loose: 2
+      loose: 2,
     },
 
     /*
@@ -259,7 +259,7 @@ module.exports = {
     letterSpacing: {
       tight: '-0.2px',
       normal: '0',
-      wide: '0.05em'
+      wide: '0.05em',
     },
 
     /*
@@ -276,7 +276,7 @@ module.exports = {
     |
     */
 
-    textColor: theme => theme('colors'),
+    textColor: (theme) => theme('colors'),
 
     /*
     |-----------------------------------------------------------------------------
@@ -292,7 +292,7 @@ module.exports = {
     |
     */
 
-    backgroundColor: theme => theme('colors'),
+    backgroundColor: (theme) => theme('colors'),
 
     /*
     |-----------------------------------------------------------------------------
@@ -311,7 +311,7 @@ module.exports = {
     backgroundSize: {
       auto: 'auto',
       cover: 'cover',
-      contain: 'contain'
+      contain: 'contain',
     },
 
     /*
@@ -333,7 +333,7 @@ module.exports = {
       '0': '0',
       '2': '2px',
       '4': '4px',
-      '8': '8px'
+      '8': '8px',
     },
 
     /*
@@ -354,8 +354,8 @@ module.exports = {
     |
     */
 
-    borderColor: theme => ({
-      default: theme('colors.grey-light'),
+    borderColor: (theme) => ({
+      default: theme('colors.gray-light'),
       ...theme('colors'),
     }),
 
@@ -381,7 +381,7 @@ module.exports = {
       sm: '.125rem',
       default: '.25rem',
       lg: '.5rem',
-      full: '9999px'
+      full: '9999px',
     },
 
     /*
@@ -439,7 +439,7 @@ module.exports = {
       '5/6': '83.33333%',
       '90%': '90%',
       full: '100%',
-      screen: '100vw'
+      screen: '100vw',
     },
 
     /*
@@ -475,7 +475,7 @@ module.exports = {
       '48': '12rem',
       '64': '16rem',
       full: '100%',
-      screen: '100vh'
+      screen: '100vh',
     },
 
     /*
@@ -495,7 +495,7 @@ module.exports = {
 
     minWidth: {
       '0': '0',
-      full: '100%'
+      full: '100%',
     },
 
     /*
@@ -516,7 +516,7 @@ module.exports = {
     minHeight: {
       '0': '0',
       full: '100%',
-      screen: '100vh'
+      screen: '100vh',
     },
 
     /*
@@ -543,7 +543,7 @@ module.exports = {
       xxs: '17rem',
       xs: '20rem',
       sm: '30rem',
-      md: '40rem',
+      om: '40rem',
       lg: '50rem',
       xl: '60rem',
       '2xl': '70rem',
@@ -552,7 +552,7 @@ module.exports = {
       '5xl': '100rem',
       full: '100%',
 
-      '2/3': '66.67%'
+      '2/3': '66.67%',
     },
 
     /*
@@ -572,7 +572,7 @@ module.exports = {
 
     maxHeight: {
       full: '100%',
-      screen: '100vh'
+      screen: '100vh',
     },
 
     /*
@@ -602,7 +602,7 @@ module.exports = {
       '6': '1.5rem',
       '8': '2rem',
       '16': '4rem',
-      '20': '5rem'
+      '20': '5rem',
     },
 
     /*
@@ -644,7 +644,7 @@ module.exports = {
       '-6': '-1.5rem',
       '-8': '-2rem',
       '-16': '-4rem',
-      '-20': '-5rem'
+      '-20': '-5rem',
     },
 
     /*
@@ -667,10 +667,10 @@ module.exports = {
     boxShadow: {
       sm: '0 1px 1px 0 rgba(116, 129, 141, 0.1)',
       default: '0 2px 4px 0 rgba(0,0,0,0.10)',
-      md: '0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08)',
+      om: '0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08)',
       lg: '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
       inner: 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
-      none: 'none'
+      none: 'none',
     },
 
     /*
@@ -694,7 +694,7 @@ module.exports = {
       '20': 20,
       '30': 30,
       '40': 40,
-      '50': 50
+      '50': 50,
     },
 
     /*
@@ -713,7 +713,7 @@ module.exports = {
     */
 
     fill: {
-      current: 'currentColor'
+      current: 'currentColor',
     },
 
     /*
@@ -732,7 +732,7 @@ module.exports = {
     */
 
     stroke: {
-      current: 'currentColor'
+      current: 'currentColor',
     },
   },
 
@@ -815,7 +815,7 @@ module.exports = {
     whitespace: ['responsive'],
     wordBreak: ['responsive'],
     width: ['responsive'],
-    zIndex: ['responsive']
+    zIndex: ['responsive'],
   },
 
   /*
@@ -835,7 +835,7 @@ module.exports = {
   plugins: [],
 
   corePlugins: {
-    container: false
+    preflight: false,
+    container: false,
   },
-
 };

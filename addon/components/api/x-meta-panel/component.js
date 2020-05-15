@@ -4,7 +4,7 @@ import Component from '@ember/component';
 export default Component.extend({
   tagName: '',
   layout: hbs`
-    <div class="docs-px-6 docs-pt-3 docs-mt-4 docs-border docs-border-grey-light docs-rounded docs-text-xs">
+    <div class="px-6 pt-3 mt-4 border border-gray-3 rounded text-xs">
       {{yield (hash
         header=(component 'api/x-meta-panel/header')
       )}}

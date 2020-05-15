@@ -52,7 +52,7 @@ hljs.registerLanguage('ts', typescript);
   ```
 
   ```hbs
-  <div class='docs-bg-code-base text-grey overflow-x-scroll'>
+  <div class='bg-code-base text-gray overflow-x-scroll'>
     <div class="p-4 w-full">
       <pre>{{{highlightedSnippet}}}</pre>
     </div>
@@ -64,7 +64,7 @@ hljs.registerLanguage('ts', typescript);
   @param {string} lang Language to use for syntax highlighting
 */
 export function highlightCode(code, lang) {
-  return hljs.getLanguage(lang) ? hljs.highlight(lang, code).value : code
+  return hljs.getLanguage(lang) ? hljs.highlight(lang, code).value : code;
 }
 
 /**
@@ -99,14 +99,14 @@ export default function compileMarkdown(source, config) {
   let tokens = marked.lexer(source);
   let markedOptions = {
     highlight: highlightCode,
-    renderer: new HBSRenderer(config)
+    renderer: new HBSRenderer(config),
   };
 
   if (config && config.targetHandlebars) {
     tokens = compactParagraphs(tokens);
   }
 
-  return `<div class="docs-md">${marked.parser(tokens, markedOptions).trim()}</div>`;
+  return `<div class="md">${marked.parser(tokens, markedOptions).trim()}</div>`;
 }
 
 // Whitespace can imply paragraphs in Markdown, which can result
@@ -134,7 +134,7 @@ function compactParagraphs(tokens) {
     let textWithoutCode = tokenText.replace(/`[\s\S]*?`/g, '');
 
     if (token.type === 'code') {
-      textWithoutCode = ''
+      textWithoutCode = '';
     }
 
     balance += count(/{{#/g, textWithoutCode);
@@ -166,7 +166,7 @@ class HBSRenderer extends marked.Renderer {
   code() {
     let code = this._processCode(super.code.apply(this, arguments));
 
-    return code.replace(/^<pre>/, '<pre class="docs-md__code">');
+    return code.replace(/^<pre>/, '<pre class="md__code">');
   }
 
   // Unescape markdown escaping in general, since it can interfere with
@@ -179,7 +179,7 @@ class HBSRenderer extends marked.Renderer {
         .replace(/&lt;/g, '<')
         .replace(/&gt;/g, '>')
         .replace(/&quot;|&#34;/g, '"')
-        .replace(/&apos;|&#39;/g, '\'');
+        .replace(/&apos;|&#39;/g, "'");
     }
     return text;
   }
@@ -194,28 +194,32 @@ class HBSRenderer extends marked.Renderer {
   }
 
   _escapeCurlies(string) {
-    return string
-      .replace(/{{/g, '&#123;&#123;')
-      .replace(/}}/g, '&#125;&#125;');
+    return string.replace(/{{/g, '&#123;&#123;').replace(/}}/g, '&#125;&#125;');
   }
 
   heading(text, level) {
-    let id = text.toLowerCase().replace(/<\/?.*?>/g, '').replace(/[^\w]+/g, '-');
-    let inner = level === 1 ? text : `<a href="#${id}" class="heading-anchor">${text}</a>`;
+    let id = text
+      .toLowerCase()
+      .replace(/<\/?.*?>/g, '')
+      .replace(/[^\w]+/g, '-');
+    let inner =
+      level === 1
+        ? text
+        : `<a href="#${id}" class="heading-anchor">${text}</a>`;
 
     return `
-      <h${level} id="${id}" class="docs-md__h${level}">${inner}</h${level}>
+      <h${level} id="${id}" class="md__h${level}">${inner}</h${level}>
     `;
   }
 
   list(text, ordered) {
     if (ordered) {
       return `
-        <ol class="docs-list-decimal">${text}</ol>
+        <ol class="list-decimal">${text}</ol>
       `;
     } else {
       return `
-        <ul class="docs-list-disc">${text}</ul>
+        <ul class="list-disc">${text}</ul>
       `;
     }
   }
@@ -223,36 +227,38 @@ class HBSRenderer extends marked.Renderer {
   table(header, body) {
     if (body) body = '<tbody>' + body + '</tbody>';
 
-    return '<table class="docs-table-auto">\n'
-      + '<thead>\n'
-      + header
-      + '</thead>\n'
-      + body
-      + '</table>\n';
+    return (
+      '<table class="table-auto">\n' +
+      '<thead>\n' +
+      header +
+      '</thead>\n' +
+      body +
+      '</table>\n'
+    );
   }
 
   tablerow(content) {
-    return '<tr class="docs-table-row">\n' + content + '</tr>\n';
+    return '<tr class="table-row">\n' + content + '</tr>\n';
   }
 
   tablecell(content, flags) {
     const type = flags.header ? 'th' : 'td';
     const tag = flags.align
-      ? '<' + type + ' align="' + flags.align + '" class="docs-border docs-px-4 docs-py-2">'
-      : '<' + type + ' class="docs-border docs-px-4 docs-py-2">';
+      ? '<' + type + ' align="' + flags.align + '" class="border px-4 py-2">'
+      : '<' + type + ' class="border px-4 py-2">';
     return tag + content + '</' + type + '>\n';
   }
 
   hr() {
-    return `<hr class="docs-md__hr">`;
+    return `<hr class="md__hr">`;
   }
 
   blockquote(text) {
-    return `<blockquote class="docs-md__blockquote">${text}</blockquote>`;
+    return `<blockquote class="md__blockquote">${text}</blockquote>`;
   }
 
   link(href, title, text) {
     const titleAttribute = title ? `title="${title}"` : '';
-    return `<a href="${href}" ${titleAttribute} class="docs-md__a">${text}</a>`;
+    return `<a href="${href}" ${titleAttribute} class="md__a">${text}</a>`;
   }
 }

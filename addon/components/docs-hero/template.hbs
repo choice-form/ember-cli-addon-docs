@@ -1,39 +1,28 @@
-<div class="
-  docs-bg-brand docs-text-white
-  docs-px-4 docs-py-16 docs-text-center
-  {{class}}
-">
-  <div class="docs-max-w-sm docs-mx-auto">
-    <h1 class="
-      docs-font-title docs-font-normal docs-text-jumbo-1 md:docs-text-jumbo-2 xl:docs-text-jumbo-3
-      docs-leading-none docs-tracking-tight
-    ">
+<div class="bg-primary text-white px-4 py-16 text-center {{class}}">
+  <div class="max-w-sm mx-auto">
+    <h1
+      class="font-normal leading-none tracking-tight font-title text-jumbo-1 om:text-jumbo-2 xl:text-jumbo-3"
+    >
       {{#if prefix}}
-        <span class="docs-block docs-text-large-5 md:docs-text-large-6 xl:docs-text-large-7">
+        <span class="block text-large-5 om:text-large-6 xl:text-large-7">
           {{prefix}}
         </span>
       {{/if}}
-
       {{heading}}
     </h1>
-
-    <p class="
-      docs-mt-4 xl:docs-mt-6 docs-mb-2 docs-leading-small docs-mx-auto docs-tracking-tight
-      docs-text-large-1 md:docs-text-large-2 xl:docs-text-large-3
-    ">
+    <p
+      class="mx-auto mt-4 mb-2 tracking-tight xl:mt-6 leading-small text-large-1 om:text-large-2 xl:text-large-3"
+    >
       {{byline}}
     </p>
-
-    <div class="docs-mt-8">
-      {{#link-to "docs" class="
-        docs-no-underline docs-bg-white docs-text-brand docs-text-xs docs-px-3 docs-py-2
-        docs-rounded docs-mt-4 docs-shadow-md hover:docs-shadow-lg
-        docs-transition hover:docs-nudge-t docs-font-bold docs-inline-block docs-uppercase
-      "}}
+    <div class="mt-8">
+      {{#link-to
+        "docs"
+        class="inline-block px-3 py-2 mt-4 text-xs font-bold no-underline uppercase transition bg-white rounded shadow-md text-primary hover:shadow-lg hover:nudge-t"
+      }}
         Read the docs
       {{/link-to}}
     </div>
-
     {{yield}}
   </div>
 </div>

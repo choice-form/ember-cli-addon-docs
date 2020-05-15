@@ -7,7 +7,7 @@
     targetAttachment="bottom left"
     constraints=(array (hash to="window" attachment="together" pin=true))}}
 
-    <ul class="docs-w-76 docs-bg-white docs-shadow-md" data-test-search-result-list>
+    <ul class="w-76 bg-white shadow-md" data-test-search-result-list>
       {{#each (take 5 searchResults) as |result index|}}
         <li>
           {{docs-header/search-result
@@ -18,7 +18,7 @@
             onClick=(action "clearSearch")}}
         </li>
       {{else}}
-        <li class="docs-block docs-py-1 docs-px-3 docs-text-grey-dark docs-no-underline">
+        <li class="block py-1 px-3 text-gray-5 no-underline">
           No results.
         </li>
       {{/each}}
