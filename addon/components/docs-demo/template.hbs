@@ -1,4 +1,4 @@
-<div class="rounded border border-gray-1 my-8 {{class}}">
+<div class="mb-8" ...attributes>
   {{yield
     (hash
       example=(component "docs-demo/x-example")
@@ -9,16 +9,15 @@
       )
     )
   }}
-  <div>
-    {{#if (and snippets (gt snippets.length 1))}}
-      <nav
-        class="px-4 py-2 font-medium tracking-tight bg-black border-b demo__snippets-nav border-gray-8"
-      >
-        {{#each snippets as |snippet|}}
+  <div class="relative rounded bg-code-base">
+    {{#if (and this.snippets (gt this.snippets.length 1))}}
+      <nav class="px-4 py-2 space-x-4 font-medium demo__snippets-nav">
+        {{#each this.snippets as |snippet|}}
           <button
-            class="mr-4 text-xs no-underline outline-none
-              hover:text-gray-1
-              {{if snippet.isActive "text-gray-1" "text-gray-5"}}"
+            class={{class
+              "p-2 text-sm no-underline outline-none hover:text-white focus:shadow-outline-white focus:outline-none rounded"
+              (if snippet.isActive "text-white" "text-secondary")
+            }}
             {{action "selectSnippet" snippet}}
           >
             {{snippet.label}}
@@ -26,9 +25,9 @@
         {{/each}}
       </nav>
     {{/if}}
-    {{#each snippets as |snippet|}}
+    {{#each this.snippets as |snippet|}}
       {{#if snippet.isActive}}
-        <div class="rounded-b demo__snippet-wrapper bg-code-base">
+        <div class="demo__snippet-wrapper">
           {{docs-snippet
             name=snippet.name
             unindent=true

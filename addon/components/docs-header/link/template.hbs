@@ -1,8 +1,8 @@
 {{#if href}}
   <a
     href={{href}}
-    class="px-4 py-5 transition uppercase text-2xs font-bold
-      text-gray-8 no-underline hover:text-primary
+    class="px-4 transition uppercase text-2xs font-bold
+      text-body no-underline hover:text-primary
       {{if push "ml-auto"}}"
     data-test-id={{data-test-id}}
   >
@@ -11,8 +11,8 @@
 {{else if on-click}}
   <a
     href="#"
-    class="px-4 py-5 transition uppercase text-2xs font-bold
-      text-gray-8 no-underline hover:text-primary
+    class="px-4 transition uppercase text-2xs font-bold
+      text-body no-underline hover:text-primary
       {{if push "ml-auto"}}"
     data-test-id={{data-test-id}}
     {{action on-click}}
@@ -23,12 +23,12 @@
   {{#link-to
     route
     class=(concat
-      "px-4 py-5 transition uppercase text-2xs
+      "px-4 transition uppercase text-2xs
       font-bold no-underline "
       (if
         (not (eq route "index"))
-        (if isActive "text-primary" "text-gray-8 hover:text-primary")
-        "text-gray-8"
+        (if isActive "text-primary" "text-body hover:text-primary")
+        "text-body"
       )
     )
     data-test-id=data-test-id

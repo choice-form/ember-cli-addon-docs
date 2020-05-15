@@ -6,9 +6,10 @@
   </div>
 {{/if}}
 <div
-  class="text-xs px-2 py-1 bg-code-base
-    relative subpixel-antialiased
-    {{if title "rounded-b" "rounded"}}"
+  class={{class
+    "text-xs px-2 py-1 bg-code-base subpixel-antialiased"
+    (if title "rounded-b" "rounded")
+  }}
   data-test-id={{or data-test-id name}}
 >
   {{#with (get-code-snippet name unindent=unindent) as |snippet|}}
@@ -16,7 +17,7 @@
       {{#copy-button
         clipboardText=snippet.source
         title="copy to clipboard"
-        class="absolute top-0 right-0 p-3 text-white bg-transparent border-none opacity-50  hover:bg-transparent hover:opacity-100"
+        class="absolute p-2 text-white bg-transparent border-none rounded opacity-50 top-2 right-4 hover:bg-transparent hover:opacity-100 focus:shadow-outline-white focus:outline-none"
       }}
         Copy
       {{/copy-button}}

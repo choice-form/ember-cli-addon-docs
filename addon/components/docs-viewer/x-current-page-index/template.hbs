@@ -1,11 +1,13 @@
 <nav
-  class="mr-auto m:hidden AddonDocs-DocsViewer-CurrentPageIndex om:block flex-no-shrink"
+  class="mr-auto it:hidden AddonDocs-DocsViewer-CurrentPageIndex ot:block flex-no-shrink"
   data-test-current-page-index
 >
-  <div class="sticky top-0 max-h-screen pt-4 pb-8 pr-8 overflow-y-scroll">
-    <ul class="pl-6 leading-normal border-l border-gray-1">
+  <div
+    class="sticky top-0 max-h-screen pt-4 pb-8 pr-8 overflow-y-scroll scrolling-touch"
+  >
+    <ul class="pl-6 leading-normal border-l-2 border-gray-1">
       {{#if pageIndex.length}}
-        <li class="mt-12 font-bold tracking-wide uppercase text-gray text-2xs">
+        <li class="mt-12 font-bold uppercase text-secondary text-2xs">
           On This Page
         </li>
       {{/if}}
@@ -19,13 +21,12 @@
             {{if item.marginBottom (concat "mt-" item.marginBottom)}}"
           data-test-index-item
         >
-          <a
-            href="#{{item.id}}"
-            class="text-gray-5 font-semibold no-underline hover:underline text-
-              {{item.size}}"
-          >
-            {{item.text}}
-          </a>
+          <Links
+            class={{class (concat "text-" item.size)}}
+            @color="text-secondary font-medium"
+            @href="#{{item.id}}"
+            @text={{item.text}}
+          />
         </li>
       {{/each}}
     </ul>

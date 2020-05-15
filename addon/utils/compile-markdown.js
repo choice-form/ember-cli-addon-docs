@@ -106,7 +106,9 @@ export default function compileMarkdown(source, config) {
     tokens = compactParagraphs(tokens);
   }
 
-  return `<div class="md">${marked.parser(tokens, markedOptions).trim()}</div>`;
+  return `<div class="docs-md">${marked
+    .parser(tokens, markedOptions)
+    .trim()}</div>`;
 }
 
 // Whitespace can imply paragraphs in Markdown, which can result

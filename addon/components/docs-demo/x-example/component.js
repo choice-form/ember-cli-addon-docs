@@ -4,10 +4,10 @@ import layout from './template';
 export default Component.extend({
   layout,
 
-  classNames: 'docs-p-4',
+  classNames: 'py-8',
 
   init() {
     this._super(...arguments);
     this.set('elementId', 'example-' + this.name);
-  }
+  },
 });

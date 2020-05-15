@@ -1,15 +1,15 @@
-<header class="relative z-40 bg-white shadow">
-  <div class="flex items-center mx-auto max-w-site-container om:px-2">
+<header class="relative bg-white border-b border-normal">
+  <div class="container flex items-center h-16 mx-auto">
     {{#docs-header/link "index"}}
-      <span
-        class="block mr-6 font-normal leading-none normal-case font-title text-large-2"
-      >
+      <span class="block mr-6 font-normal leading-none normal-case">
         {{#if prefix}}
           <div class="text-2xs">
             {{prefix}}
           </div>
         {{/if}}
-        {{name}}
+        <h4 class="mt-1">
+          {{name}}
+        </h4>
       </span>
     {{/docs-header/link}}
     <div

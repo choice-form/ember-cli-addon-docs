@@ -9,7 +9,7 @@ import { getOwner } from '@ember/application';
 
 import layout from './template';
 
-const tagToSize = { H2: 'xxs', H3: 'xxs' };
+const tagToSize = { H2: '2xs', H3: '2xs' };
 const tagToIndent = { H2: '0', H3: '4' };
 const tagToMarginTop = { H2: '2', H3: '2' };
 const tagToMarginBottom = { H2: '0', H3: '0' };
@@ -22,15 +22,11 @@ export default Component.extend({
 
   tagName: 'main',
   classNames: [
-    'px-4',
-    'om:px-8',
-    'lg:px-20',
+    'm:px-4 t:px-8 d:px-16 od:px-20',
+    'm:mt-6 t:mt-8 d:mt-16 od:mt-20',
     'mx-auto',
-    'om:mx-0',
-    'mt-6',
-    'om:mt-12',
-    'om:min-w-0',
-    'om:flex-1',
+    'min-w-0',
+    'flex-1',
   ],
 
   didInsertElement() {
