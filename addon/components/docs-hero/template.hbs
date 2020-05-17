@@ -5,19 +5,28 @@
   <div class="max-w-xl mx-auto">
     <h1 class="font-medium leading-none">
       {{#if @prefix}}
-        <div class="m:text-xl t:text-2xl ot:text-3xl">
+        <h4>
           {{@prefix}}
-        </div>
+        </h4>
       {{/if}}
-      <div class="my-4 text-6xl font-kiro">
+      <h1 class="my-4 font-kiro">
         {{@heading}}
-      </div>
+      </h1>
     </h1>
-    <p class="mx-auto mb-2 leading-small">
+    <p class="mx-auto mb-2">
       {{@byline}}
     </p>
     <div class="mt-8">
-      <Button @route={{link route="docs"}} @text="Read the docs" />
+      <Button
+        @route={{link route="docs"}}
+        @text="Read the docs"
+        @color="border text-primary bg-body hover:text-primary shadow"
+        @size="h-10"
+        @focusColor={{array
+          "shadow-outline border-primary-opacity-4"
+          "border-transparent"
+        }}
+      />
     </div>
     {{yield}}
   </div>

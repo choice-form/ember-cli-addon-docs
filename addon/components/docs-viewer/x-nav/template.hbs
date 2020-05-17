@@ -1,18 +1,23 @@
 <div class="px-4 mt-4 text-right om:px-6 om:hidden">
   <Button @text="☰ Menu" @onClick={{fn (toggle "isShowingMenu" this)}} />
 </div>
-<div class="border-r border-normal AddonDocs-DocsViewer-Nav flex-no-shrink">
+<div class="border-r border-bright AddonDocs-DocsViewer-Nav flex-no-shrink">
   <nav
     onclick={{action (mut isShowingMenu) false}}
     class={{class
-      "m:absolute right-0 shadow-lg om:shadow-none m:mr-2 om:mr-0 om:pl-2 max-w-md w-90% om:w-72 z-10 transition om:sticky om:top-0 om:opacity-100"
-      (if isShowingMenu "m:bg-white m:opacity-100" "m:opacity-0")
+      "m:absolute m:right-0 om:pl-2 max-w-md w-90% om:w-72 z-10 transition om:sticky top-0 m:bottom-0 om:opacity-100"
+      (if isShowingMenu "m:opacity-100" "m:opacity-0 m:hidden")
     }}
   >
-    <div class="px-3 pt-px mb-8 om:px-4 om:max-h-screen om:overflow-y-scroll">
-      <div class="text-right om:hidden">
+    <div
+      class="max-h-screen px-3 pt-px mb-8 overflow-y-scroll scrolling-touch om:px-4 m:bg-black-opacity-9 m:text-white filter-blur-10"
+    >
+      <div class="sticky top-0">
         <Button
-          @preset="text"
+          class="-right-1 om:hidden top-2"
+          @position="absolute"
+          @color="text-white hover:bg-white-opacity-1 active:bg-white-opacity-2"
+          @focusColor="shadow-outline-white"
           @icon="#outline-remove-16"
           @onClick={{fn (mut isShowingMenu) false}}
         />
