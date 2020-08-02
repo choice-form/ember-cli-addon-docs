@@ -16,96 +16,136 @@ $site-container: 1400px;
 @import 'pod-styles.scss';
 @import 'syntax';
 
-// Figure out how to do this in tailwind
-.docs-fill-current {
-  &,
-  & * {
-    fill: currentColor;
+.docs-md {
+  -webkit-font-smoothing: antialiased;
+  > ol {
+    margin-bottom: var(--spacing-4);
+  }
+  > p {
+    margin-bottom: var(--spacing-4);
+    > code {
+      padding: 0 var(--spacing-1);
+      background-color: var(--gray-1);
+    }
+  }
+  > ul {
+    font-size: var(--text-sm);
+    margin-bottom: var(--spacing-4);
+    list-style: disc;
+
+    padding-left: var(--spacing-4);
+    > li {
+      margin-bottom: var(--spacing-2);
+    }
+    > li > ul {
+      margin-top: var(--spacing-2);
+    }
+    > ul {
+      list-style: circle;
+      > ul {
+        list-style: decimal;
+      }
+    }
+  }
+  > aside {
+    font-size: 0.875rem;
+    font-style: italic;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    background-color: #f8fafc;
+  }
+  &:not(pre) {
+    > code {
+      padding-right: var(--spacing-1);
+      background-color: #f1f5f8;
+
+      padding-left: var(--spacing-1);
+    }
+  }
+}
+.md__h1 {
+  margin-bottom: var(--spacing-6);
+  text-decoration: none;
+  a {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    text-decoration: none;
+  }
+}
+.md__h2 {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-5);
+  margin-bottom: var(--spacing-4);
+  padding-top: var(--spacing-8);
+  text-decoration: none;
+  a {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    text-decoration: none;
+  }
+}
+.md__h3 {
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-6);
+  margin-bottom: var(--spacing-1);
+  padding-top: var(--spacing-4);
+  a {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    text-decoration: none;
+  }
+}
+.bg-code-base {
+  background: #282c34;
+}
+.md__code {
+  font-size: var(--text-sm);
+  overflow-x: scroll;
+  margin-top: var(--spacing-8);
+  margin-bottom: var(--spacing-8);
+  padding: var(--spacing-3) var(--spacing-4);
+  color: var(--gray-1);
+  border-radius: var(--rounded);
+  background: #282c34;
+
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+.md__hr {
+  height: 1px;
+  margin-top: var(--spacing-8);
+  margin-bottom: var(--spacing-8);
+  padding-top: 0;
+  padding-bottom: 0;
+  border-bottom-width: 1px;
+}
+.md__blockquote {
+  color: var(--gray-5);
+  border-left-width: 4px;
+
+  padding-left: var(--spacing-8);
+}
+.md__a {
+  text-decoration: none;
+  color: var(--primary);
+  &:focus {
+    text-decoration: underline;
+  }
+  &:hover {
+    text-decoration: underline;
   }
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  @apply .docs-min-h-screen;
-  @apply .docs-flex;
-  @apply .docs-flex-col;
-}
-
 body {
-  @apply .docs-antialiased;
-  @apply .docs-font-sans;
-  @apply .docs-text-base;
-  @apply .docs-leading-normal;
-  @apply .docs-text-grey-darkest;
-  @apply .docs-bg-brand;
-
-  @apply .docs-flex-1;
-  @apply .docs-flex;
-  @apply .docs-flex-col;
-}
-
-body > .ember-view {
-  @apply .docs-flex-1;
-  @apply .docs-flex;
-  @apply .docs-flex-col;
-
-  @apply .docs-mt-1;
-  @apply .docs-bg-white;
+  color: var(--text-body);
 }
 
 pre {
   margin: 0;
-}
-
-svg {
-  fill: currentColor;
-}
-
-.docs-transition {
-  transition: all 0.15s;
-}
-
-h1 > .heading-anchor:before,
-h2 > .heading-anchor:before,
-h3 > .heading-anchor:before {
-  content: '\B6';
-  cursor: pointer;
-  display: block;
-  float: left;
-  visibility: hidden;
-
-  color: #aaa;
-}
-
-h1 > .heading-anchor:hover:before,
-h2 > .heading-anchor:hover:before,
-h3 > .heading-anchor:hover:before {
-  visibility: visible;
-}
-
-h1 > a:before {
-  font-size: 0.7em;
-  width: 0.7em;
-  padding: 0.2em 0;
-  margin-left: -0.9em;
-}
-
-h2 > a:before {
-  font-size: 0.85em;
-  width: 0.8em;
-  padding: 0.1em 0em;
-  margin-left: -0.9em;
-}
-
-h3 > a:before {
-  font-size: 1em;
-  width: 0em;
-  margin-left: -0.9em;
-}
-
-table {
-  width: 100%;
 }

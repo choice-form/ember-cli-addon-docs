@@ -6,31 +6,31 @@ Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
 Modified for AddonDocs.
 */
 
-$base:    #282c34;
-$mono-1:  #abb2bf;
-$mono-2:  #818896;
-$mono-3:  #5c6370;
-$hue-1:   #56b6c2;
-$hue-2:   #61aeee;
-$hue-3:   #c678dd;
-$hue-4:   #98c379;
-$hue-5:   #e06c75;
+$base: #282c34;
+$mono-1: #abb2bf;
+$mono-2: #818896;
+$mono-3: #5c6370;
+$hue-1: #56b6c2;
+$hue-2: #61aeee;
+$hue-3: #c678dd;
+$hue-4: #98c379;
+$hue-5: #e06c75;
 $hue-5-2: #be5046;
-$hue-6:   #e06c75; // original #d19a66
+$hue-6: #e06c75; // original #d19a66
 $hue-6-2: #e6c07b;
 
 .hljs {
   display: block;
   overflow-x: auto;
-  padding: 0.5em;
+  padding: var(--spacing-2);
   color: $mono-1;
   background: $base;
 }
 
 .hljs-comment,
 .hljs-quote {
-  color: $mono-3;
   font-style: italic;
+  color: $mono-3;
 }
 
 .hljs-doctag,
@@ -64,7 +64,9 @@ $hue-6-2: #e6c07b;
   color: $hue-6-2;
 }
 
-.hljs-attr,
+.hljs-attr {
+  color: $hue-6-2;
+}
 .hljs-variable,
 .hljs-template-variable,
 .hljs-type,
@@ -72,7 +74,7 @@ $hue-6-2: #e6c07b;
 .hljs-selector-attr,
 .hljs-selector-pseudo,
 .hljs-number {
-  color: $hue-6;
+  color: $hue-1;
 }
 
 .hljs-symbol,

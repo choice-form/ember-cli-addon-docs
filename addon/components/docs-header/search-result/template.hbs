@@ -2,13 +2,13 @@
   {{#link-to
     params=linkArgs
     class=(concat
-      "docs-block docs-py-2 docs-px-3 docs-text-black docs-no-underline hover:docs-bg-grey-lighter "
-      (if selected "docs-bg-grey-lighter")
+      "block py-2 px-3 text-black no-underline hover:bg-gray-1 "
+      (if selected "bg-gray-1")
     )
   }}
-    <div class="docs-flex docs-items-center">
-      {{svg-jar icon height=28 width=28 class="docs-mr-2 docs-flex-no-shrink"}}
-      <span class="docs-truncate">
+    <div class="flex items-center">
+      {{svg-jar icon height=28 width=28 class="mr-2 flex-no-shrink"}}
+      <span class="truncate">
         {{#if titleMatchesQuery}}
           {{{highlightedTitle}}}
         {{else}}
@@ -16,9 +16,8 @@
         {{/if}}
       </span>
     </div>
-  
     {{#if (not titleMatchesQuery)}}
-      <small class="docs-text-grey-dark docs-inline-block">
+      <small class="inline-block text-gray-5">
         {{{bestMatch}}}
       </small>
     {{/if}}

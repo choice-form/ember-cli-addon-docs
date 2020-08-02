@@ -7,7 +7,7 @@ export default Component.extend({
     {{#each-in sections as |sectionName items|}}
       {{#if items}}
         <section data-test-api-section class="item-section">
-          <h2 data-test-section-header={{sectionName}} class="docs-h2">
+          <h2 data-test-section-header={{sectionName}} class="h2">
             {{capitalize sectionName}}
           </h2>
 

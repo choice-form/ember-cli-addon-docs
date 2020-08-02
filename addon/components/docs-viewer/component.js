@@ -1,9 +1,9 @@
-import { inject as service } from '@ember/service';
 import Component from '@ember/component';
-import layout from './template';
-import { EKMixin, keyDown } from 'ember-keyboard';
 import { on } from '@ember/object/evented';
+import { inject as service } from '@ember/service';
+import { EKMixin, keyDown } from 'ember-keyboard';
 import { formElementHasFocus } from '../../keyboard-config';
+import layout from './template';
 
 /**
   The main docs viewer component for EmberCLI AddonDocs. This component must be placed
@@ -37,7 +37,7 @@ export default Component.extend(EKMixin, {
   docsRoutes: service(),
   router: service(),
 
-  classNames: 'docs-viewer docs-flex docs-flex-1',
+  classNames: 'docs-viewer flex flex-1',
 
   keyboardActivated: true,
 
@@ -47,7 +47,7 @@ export default Component.extend(EKMixin, {
     this.get('docsRoutes').resetState();
   },
 
-  nextPage: on(keyDown('KeyJ'), keyDown('ArrowRight'), function() {
+  nextPage: on(keyDown('KeyJ'), keyDown('ArrowRight'), function () {
     if (!formElementHasFocus()) {
       if (this.get('docsRoutes.next')) {
         this.get('router').transitionTo(...this.get('docsRoutes.next.route'));
@@ -55,12 +55,11 @@ export default Component.extend(EKMixin, {
     }
   }),
 
-  previousPage: on(keyDown('KeyK'), keyDown('ArrowLeft'), function() {
+  previousPage: on(keyDown('KeyK'), keyDown('ArrowLeft'), function () {
     if (!formElementHasFocus()) {
       if (this.get('docsRoutes.previous')) {
         this.get('router').transitionTo(...this.get('docsRoutes.previous.route'));
       }
     }
   }),
-
 });

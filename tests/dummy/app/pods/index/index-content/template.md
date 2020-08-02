@@ -1,4 +1,4 @@
-<h2 class='docs-flex docs-items-center docs-mt-8 docs-h2'>
+<h2 class='flex items-center mt-8 h2'>
   {{svg-jar 'logo-horizontal' width=40 height=16
     class='mr-2'}}
   Motivation
@@ -13,8 +13,8 @@ Ember addons occupy a unique space here. Besides everything that's expected of a
 These days, a well-maintained Ember addon should
 
 - **Provide interactive demos of their components** in the context of an Ember app
-- **Show current *and versioned* guides,** ideally whose content is verified by automated tests
-- **Show current *and versioned* API documentation** derived from structured comments in source code
+- **Show current _and versioned_ guides,** ideally whose content is verified by automated tests
+- **Show current _and versioned_ API documentation** derived from structured comments in source code
 - **Have excellent test coverage** across a matrix of Ember and Ember CLI versions
 - **Make it easy for contributors to correct documentation errors** in addition to submitting code fixes
 

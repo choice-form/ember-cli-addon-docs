@@ -11,7 +11,5 @@ import LinkComponent from '@ember/routing/link-component';
   @public
 */
 export default LinkComponent.extend({
-
-  classNames: 'docs-md__a'
-
+  classNames: 'md__a',
 });

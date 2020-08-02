@@ -9,7 +9,7 @@ import { getOwner } from '@ember/application';
 
 import layout from './template';
 
-const tagToSize = { H2: 'xxs', H3: 'xxs' };
+const tagToSize = { H2: '2xs', H3: '2xs' };
 const tagToIndent = { H2: '0', H3: '4' };
 const tagToMarginTop = { H2: '2', H3: '2' };
 const tagToMarginBottom = { H2: '0', H3: '0' };
@@ -22,16 +22,21 @@ export default Component.extend({
 
   tagName: 'main',
   classNames: [
-    'docs-px-4', 'md:docs-px-8', 'lg:docs-px-20', 'docs-mx-auto', 'md:docs-mx-0', 'docs-mt-6',
-    'md:docs-mt-12', 'md:docs-min-w-0', 'md:docs-flex-1'
+    'm:px-4 t:px-8 d:px-16 od:px-20',
+    'm:mt-6 t:mt-8 d:mt-16 od:mt-20',
+    'mx-auto',
+    'min-w-0',
+    'flex-1',
   ],
 
   didInsertElement() {
     this._super(...arguments);
 
-    let target = this.element.querySelector('[data-current-page-index-target]')
+    let target = this.element.querySelector('[data-current-page-index-target]');
 
-    this._mutationObserver = new MutationObserver(bind(this, this.reindex, target))
+    this._mutationObserver = new MutationObserver(
+      bind(this, this.reindex, target)
+    );
 
     this._mutationObserver.observe(target, { subtree: true, childList: true });
 
@@ -46,7 +51,7 @@ export default Component.extend({
 
   reindex(target) {
     let headers = Array.from(
-      target.querySelectorAll('.docs-h2, .docs-h3, .docs-md__h2, .docs-md__h3')
+      target.querySelectorAll('.h2, .h3, .md__h2, .md__h3')
     );
 
     this.get('onReindex')(
@@ -63,7 +68,7 @@ export default Component.extend({
     );
   },
 
-  editCurrentPageUrl: computed('router.currentRouteName', function() {
+  editCurrentPageUrl: computed('router.currentRouteName', function () {
     let path = this.get('router.currentRouteName');
     if (!path) {
       // `router` doesn't exist for old ember versions via ember-try
@@ -72,7 +77,12 @@ export default Component.extend({
 
     let match = this._locateFile(path);
     if (match) {
-      let { projectHref, addonPathInRepo, docsAppPathInRepo, primaryBranch } = config['ember-cli-addon-docs'];
+      let {
+        projectHref,
+        addonPathInRepo,
+        docsAppPathInRepo,
+        primaryBranch,
+      } = config['ember-cli-addon-docs'];
       let parts = [projectHref, 'edit', primaryBranch];
       if (match.inTree === 'addon') {
         parts.push(addonPathInRepo);
@@ -88,20 +98,23 @@ export default Component.extend({
     path = path.replace(/\./g, '/');
     if (path === 'docs/api/item') {
       let { projectName } = config['ember-cli-addon-docs'];
-      let model = getOwner(this).lookup('route:application').modelFor('docs.api.item');
-      let filename = model.get('file').replace(new RegExp(`^${projectName}/`), '');
-      let file = addonFiles.find(f => f.match(filename));
+      let model = getOwner(this)
+        .lookup('route:application')
+        .modelFor('docs.api.item');
+      let filename = model
+        .get('file')
+        .replace(new RegExp(`^${projectName}/`), '');
+      let file = addonFiles.find((f) => f.match(filename));
       if (file) {
         return { file, inTree: 'addon' };
       }
     } else {
       let file = appFiles
-        .filter(file => file.match(/\.(hbs|md)$/))
-        .find(file => file.match(path));
+        .filter((file) => file.match(/\.(hbs|md)$/))
+        .find((file) => file.match(path));
       if (file) {
         return { file, inTree: 'app' };
       }
     }
-  }
-
+  },
 });
